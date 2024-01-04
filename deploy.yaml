@@ -29,5 +29,5 @@ spec:
     - protocol: TCP
       port: 80  # Expose the service on port 80
       targetPort: 3000  # Port on which the container is listening
-      nodePort: 31000  # Set a specific NodePort (adjust as needed)
+# nodePort: 31000  # Set a specific NodePort (adjust as needed)
   type: NodePort  # Use NodePort, LoadBalancer, or ClusterIP based on your setup
