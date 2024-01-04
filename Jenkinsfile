@@ -38,6 +38,7 @@ pipeline {
                     // Deploy to Kubernetes using kubectl
                     withKubeConfig([credentialsId: 'kubeconfig']) {
                         sh "kubectl apply -f deploy.yaml -n $KUBE_NAMESPACE"
+                        sh "kubectl apply -f ingress.yaml -n $KUBE_NAMESPACE"
                     }
                 }
             }
