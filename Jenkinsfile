@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'ashaik65/nodejs:latest'
-        KUBE_NAMESPACE = 'default'
+        DOCKER_IMAGE = 'ashaik65/newjs:latest'
+        KUBE_NAMESPACE = 'nodejs'
         KUBE_DEPLOYMENT_NAME = 'nodejs-app'
     }
     
