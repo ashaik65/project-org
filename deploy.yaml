@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-app
+spec:
+  replicas: 3  # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: nodejs-app
+  template:
+    metadata:
+      labels:
+        app: nodejs-app
+    spec:
+      containers:
+      - name: nodejs-app
+        image: ashaik65/nodejs:latest
+        ports:
+        - containerPort: 3000  # Adjust the container port if needed
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-service
+spec:
+  selector:
+    app: nodejs-app
+  ports:
+    - protocol: TCP
+      port: 80  # Expose the service on port 80
+      targetPort: 3000  # Port on which the container is listening
+  type: NodePort  # Use NodePort, LoadBalancer, or ClusterIP based on your setup
